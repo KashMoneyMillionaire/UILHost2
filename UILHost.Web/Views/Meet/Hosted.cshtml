@@ -1,0 +1,110 @@
+﻿@model List<UILHost.Infrastructure.Domain.Meet>
+@{
+    ViewBag.Title = "My Meets";
+}
+
+<div class="container">
+
+    <div class="meet-container">
+        <div class="date-selector-container">
+            <h1 class="page-title">Hosted Meets</h1>
+            @using (Html.BeginForm())
+            {
+                <br />
+                <div>
+                    <label for="meetDatePicker">Select earliest date to see:</label>
+                    <br />
+                    <input id="meetDatePicker" name="sortDate" type="text" />
+                </div>
+                <br />
+                <input type="submit" class="btn btn-primary" />
+            }
+            <hr />
+            <a href="@Url.Action(MVC.Meet.Add())" class="btn btn-primary">Add New Meet</a>
+        </div>
+
+        <div class="results-container">
+            <div class="table-type-c-container">
+                @if (Model.Any(m => m.EndTime > DateTime.Now))
+                {
+                    <h3>Current Meets</h3>
+                    <table class="table-type-c">
+                        <thead>
+                            <tr>
+                                <th class="col-1d">Meet Name</th>
+                                <th class="col-2d">Date</th>
+                                <th class="col-3d">Start Time</th>
+                                <th class="col-4d">End Time</th>
+                                <th class="col-5d"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var meet in Model.Where(o => o.EndTime > DateTime.Now)) //future
+                            {
+                                <tr>
+                                    <td class="col-1d">@meet.Name</td>
+                                    <td class="col-2d">
+                                        @meet.StartTime.ToShortDateString() @if (meet.StartTime.Day != meet.EndTime.Day)
+                                        {
+                                            meet.EndTime.ToShortDateString();
+                                        }
+                                    </td>
+                                    <td class="col-3d">@meet.StartTime.ToShortTimeString()</td>
+                                    <td class="col-4d">@meet.EndTime.ToShortTimeString()</td>
+                                    <td class="col-5d"><a class="btn btn-primary" href="@Url.Action(MVC.Meet.Run(meet.Id))">Edit Meet</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                @if (Model.Any(m => m.EndTime < DateTime.Now))
+                {
+                    <hr />
+                    <h3 class="past">Past Meets</h3>
+                    <table class="table-type-c past">
+                        <thead>
+                            <tr>
+                                <th class="col-1d">Meet Name</th>
+                                <th class="col-2d">Date</th>
+                                <th class="col-3d">Start Time</th>
+                                <th class="col-4d">End Time</th>
+                                <th class="col-5d"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var meet in Model.Where(o => o.EndTime < DateTime.Now)) //past
+                            {
+                                <tr>
+                                    <td class="col-1d">@meet.Name</td>
+                                    <td class="col-2d">
+                                        @meet.StartTime.ToShortDateString()
+                                        @if (meet.StartTime.Day != meet.EndTime.Day)
+                                        {
+                                            <span> - @meet.EndTime.ToShortDateString()</span>
+                                        }
+                                    </td>
+                                    <td class="col-3d">@meet.StartTime.ToShortTimeString()</td>
+                                    <td class="col-4d">@meet.EndTime.ToShortTimeString()</td>
+                                    <td class="col-5d"><a class="btn btn-primary" href="@Url.Action(MVC.Meet.Run(meet.Id))">View Meet</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/kendo")
+    <script>
+        $(document).ready(function () {
+            $("#meetDatePicker").kendoDatePicker();
+        })
+    </script>
+}

@@ -1,0 +1,64 @@
+﻿@using UILHost.Infrastructure.Domain
+@using UILHost.Web.Extensions
+@model UILHost.Web.Models.NewMeetViewModel
+@{
+    ViewBag.Title = "Add New Meet";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2>Add New Meet</h2>
+    <hr/>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.IsHostCompeting)
+        @Html.CheckBoxFor(m => m.IsHostCompeting)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.StartTime)
+        @Html.TextBoxFor(m => m.StartTime, new { id = "startTimePicker" })
+        @Html.ValidationMessageFor(model => model.StartTime)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.EndTime)
+        @Html.TextBoxFor(m => m.EndTime, new { id = "endTimePicker" })
+        @Html.ValidationMessageFor(model => model.EndTime)
+    </div>
+
+    <div>
+        @for (var i = 0; i < Model.MeetEvents.Count; i++)
+        {
+            @Html.CheckBoxFor(m => m.MeetEvents[i].IsSelected, new { name = "MeetEvents[@i].IsSelected", id = "check" + i })
+            <label for="check@(i)">@Model.MeetEvents[i].Name</label>
+            <input type="hidden" name="MeetEvents[@i].Name" value="@Model.MeetEvents[i].Name" />
+            <input type="hidden" name="MeetEvents[@i].EventId" value="@Model.MeetEvents[i].EventId" />
+
+        }
+    </div>
+
+    <input type="submit" value="Create New Meet" class="btn btn-primary" />
+}
+
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $("#startTimePicker").kendoDateTimePicker();
+            $("#endTimePicker").kendoDateTimePicker();
+        })
+    </script>
+}

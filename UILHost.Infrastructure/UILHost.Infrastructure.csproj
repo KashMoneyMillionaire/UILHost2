@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7277F8F5-7DD3-47C6-8D81-B5EF77DD10EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UILHost.Infrastructure</RootNamespace>
+    <AssemblyName>UILHost.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.2.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.MVC3.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.2.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfigFacade.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Data\OperationalDataContext.cs" />
+    <Compile Include="Data\Operational\EntityMappings\AddressMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\EventMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\EventStudentMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\MeetEventMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\MeetMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\MeetStudentMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\MeetSchoolMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\SchoolMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\StateMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\StudentMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\TeacherMapping.cs" />
+    <Compile Include="Data\Operational\Migrations\201408060254237_Initial.cs" />
+    <Compile Include="Data\Operational\Migrations\201408060254237_Initial.Designer.cs">
+      <DependentUpon>201408060254237_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Operational\Migrations\201408100012195_NameOnMeet.cs" />
+    <Compile Include="Data\Operational\Migrations\201408100012195_NameOnMeet.Designer.cs">
+      <DependentUpon>201408100012195_NameOnMeet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Operational\Migrations\201408110454488_CodeToTeacher.cs" />
+    <Compile Include="Data\Operational\Migrations\201408110454488_CodeToTeacher.Designer.cs">
+      <DependentUpon>201408110454488_CodeToTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Operational\Migrations\201408120041171_AddMeetStudentToMeetSchool.cs" />
+    <Compile Include="Data\Operational\Migrations\201408120041171_AddMeetStudentToMeetSchool.Designer.cs">
+      <DependentUpon>201408120041171_AddMeetStudentToMeetSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Operational\Migrations\201408120525306_StudentIsActive.cs" />
+    <Compile Include="Data\Operational\Migrations\201408120525306_StudentIsActive.Designer.cs">
+      <DependentUpon>201408120525306_StudentIsActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Operational\Migrations\Configuration.cs" />
+    <Compile Include="Data\Patterns\UnitOfWorkCommitActivities.cs" />
+    <Compile Include="Domain\Address.cs" />
+    <Compile Include="Domain\Event.cs" />
+    <Compile Include="Domain\EventStudent.cs" />
+    <Compile Include="Domain\Meet.cs" />
+    <Compile Include="Domain\MeetEvent.cs" />
+    <Compile Include="Domain\MeetSchool.cs" />
+    <Compile Include="Domain\MeetStudent.cs" />
+    <Compile Include="Domain\School.cs" />
+    <Compile Include="Domain\State.cs" />
+    <Compile Include="Domain\Student.cs" />
+    <Compile Include="Domain\Teacher.cs" />
+    <Compile Include="Entity\EntityBase.cs" />
+    <Compile Include="Entity\IEntityBase.cs" />
+    <Compile Include="IoC\DependencyResolver.cs" />
+    <Compile Include="IoC\ModuleBase.cs" />
+    <Compile Include="IoC\RepositoryModule.cs" />
+    <Compile Include="IoC\ServiceModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\MeetRepository.cs" />
+    <Compile Include="Repository\StateRepository.cs" />
+    <Compile Include="Repository\TeacherRepository.cs" />
+    <Compile Include="SaltedHash.cs" />
+    <Compile Include="Services\Interface\IMeetService.cs" />
+    <Compile Include="Services\Interface\IStateService.cs" />
+    <Compile Include="Services\Interface\ITeacherService.cs" />
+    <Compile Include="Services\MeetService.cs" />
+    <Compile Include="Services\StateService.cs" />
+    <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="ValueParsingUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Operational\Migrations\201408060254237_Initial.resx">
+      <DependentUpon>201408060254237_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Operational\Migrations\201408100012195_NameOnMeet.resx">
+      <DependentUpon>201408100012195_NameOnMeet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Operational\Migrations\201408110454488_CodeToTeacher.resx">
+      <DependentUpon>201408110454488_CodeToTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Operational\Migrations\201408120041171_AddMeetStudentToMeetSchool.resx">
+      <DependentUpon>201408120041171_AddMeetStudentToMeetSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Operational\Migrations\201408120525306_StudentIsActive.resx">
+      <DependentUpon>201408120525306_StudentIsActive.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Repository.Pattern.Ef6\UILHost.Repository.Pattern.Ef6.csproj">
+      <Project>{f68a1d19-93fb-47c1-a22b-42bea3e4fd8c}</Project>
+      <Name>UILHost.Repository.Pattern.Ef6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Pattern\UILHost.Repository.Pattern.csproj">
+      <Project>{6e682a14-c872-4813-b620-76e108dea683}</Project>
+      <Name>UILHost.Repository.Pattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service.Pattern\UILHost.Service.Pattern.csproj">
+      <Project>{86f86650-ee3c-4372-8fec-40c2fe015022}</Project>
+      <Name>UILHost.Service.Pattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UILHost.Common\UILHost.Common.csproj">
+      <Project>{AB3F9C5A-26AF-45CE-9CA0-C2BD785DEEAA}</Project>
+      <Name>UILHost.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,13 @@
+﻿@model List<UILHost.Infrastructure.Domain.Meet>
+@{
+    ViewBag.Title = "Participating";
+}
+
+<h2>Participating</h2>
+
+@foreach (var meet in Model)
+{
+    <h2>@meet.Name</h2>
+    <h3>@meet.StartTime.ToShortDateString() - @meet.EndTime.ToShortDateString()</h3>
+    <br/>
+}

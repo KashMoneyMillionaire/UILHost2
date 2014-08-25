@@ -1,0 +1,76 @@
+﻿@using UILHost.Web.Extensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - UILHost</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+<script type="text/javascript">
+    window.appInsights={queue:[],applicationInsightsId:null,accountId:null,appUserId:null,configUrl:null,start:function(n){function u(n){t[n]=function(){var i=arguments;t.queue.push(function(){t[n].apply(t,i)})}}function f(n,t){if(n){var u=r.createElement(i);u.type="text/javascript";u.src=n;u.async=!0;u.onload=t;u.onerror=t;r.getElementsByTagName(i)[0].parentNode.appendChild(u)}else t()}var r=document,t=this,i;t.applicationInsightsId=n;u("logEvent");u("logPageView");i="script";f(t.configUrl,function(){f("//az416426.vo.msecnd.net/scripts/a/ai.0.7.js")});t.start=function(){}}};
+
+    appInsights.start("2836c23c-7f83-4e38-8687-af4b2bb745a0");
+    appInsights.logPageView();
+</script><meta name="description" content="Host Texas UIL meets online" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("UILHost", "Index", "Home", new { area = "" }, new { @class = "navbar-brand bold-title" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meet Manager</a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Hosted Meets", MVC.Meet.Hosted())</li>
+                                <li>@Html.ActionLink("Participating Meets", MVC.Meet.Participating())</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student Manager</a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("My Students", MVC.Student.List())</li>
+                            </ul>
+                        </li>
+                        @if (Html.HasPermission())
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teacher Manager</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("My Students", MVC.Student.List())</li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron"></div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

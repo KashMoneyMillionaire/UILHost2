@@ -1,0 +1,268 @@
+﻿
+
+/*
+    Generic stuffs
+*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /* Margin bottom by footer height */
+    margin-bottom: 4em;
+    /* A fix for Chrome, overflow scroll was causing scrollbars to appear when company chooser dropdown was selected, 
+     and the dropdown exteneded past the body -and in Chrome, the body ends where the non-footer content ends
+     (this is a result of having a fixed footer) */
+    /*padding-bottom: 10em;*/
+}
+
+.bold-title {
+    font-size: 36px;
+}
+
+.navbar .container {
+    padding: 0 6em;
+}
+
+.container {
+    width: auto;
+    padding: 0 8em;
+}
+
+.validation-summary-errors,
+.field-validation-error {
+    color: #d33939;
+}
+
+.validation-summary-errors {
+    display: block;
+}
+
+
+
+/* TYPE C - TYPE C - TYPE C */
+/* 
+    Can be found on Payrolls Modal and PayStub Details
+    It doesn't have grid lines, but it does have a single border outline
+    TYPE C is a clean table with typicially 3 columns, 1st = Label, 2nd = Value, 3rd = Value 
+    1st - left aligned, 2nd & 3rd -right aligned
+    The final <TR> can have a class of "totals" which makes it a bold row
+    Can separate from other tables with <hr/>
+*/
+.table-type-c-container {
+    border: 1px solid #e0e0e0;
+    padding: 0 1.785714286em .5em; /* 20/14px 25/14px 7/14px */
+    margin-bottom: 1em;
+    color: #555;
+}
+
+    .table-type-c-container .past {
+        color: grey;
+    }
+
+    .table-type-c-container table {
+        width: 100%;
+        margin: 1em;
+        /*border-bottom: 1px solid #e0e0e0;*/
+    }
+
+    .table-type-c-container hr {
+        margin: .5em 0;
+    }
+
+.table-type-c {
+    color: black;
+}
+
+    .table-type-c th,
+    .table-type-c td {
+        padding: .4em 0;
+    }
+
+    .table-type-c .col-1 {
+        width: 50%;
+    }
+
+    .table-type-c .col-2,
+    .table-type-c .col-3 {
+        width: 25%;
+        text-align: right;
+    }
+
+    .table-type-c td.col-1b {
+        width: 25%;
+        padding-left: 1em;
+    }
+
+    .table-type-c .col-2b {
+        width: 50%;
+    }
+
+    .table-type-c .col-3b {
+        width: 25%;
+    }
+
+    .table-type-c td.col-1c {
+        width: 40%;
+        padding-left: 1em;
+    }
+
+    .table-type-c .col-1c,
+    .table-type-c .col-2c,
+    .table-type-c .col-3c,
+    .table-type-c .col-4c {
+        width: 20%;
+    }
+
+    .table-type-c .col-2c,
+    .table-type-c .col-3c,
+    .table-type-c .col-4c {
+        text-align: center;
+    }
+
+    .table-type-c th,
+    .table-type-c .totals {
+        font-weight: 600;
+    }
+/* A separate table for GRAND totals */
+.totals-table .totals {
+    color: #94C947;
+    font-size: 1.285714286em; /* 18/14px */
+}
+
+.table-type-c .col-1d,
+.table-type-c .col-2d,
+.table-type-c .col-3d,
+.table-type-c .col-4d {
+    width: 22%;
+}
+
+.table-type-c .col-5d {
+    width: 12%;
+}
+
+
+
+/* 
+  _____ __   __ ___   ___    ___  ___    _    ___  _  _ __   __
+ |_   _|\ \ / /| _ \ / _ \  / __|| _ \  /_\  | _ \| || |\ \ / /
+   | |   \ V / |  _/| (_) || (_ ||   / / _ \ |  _/| __ | \ V / 
+   |_|    |_|  |_|   \___/  \___||_|_\/_/ \_\|_|  |_||_|  |_|  
+                                                               
+ Typography */
+
+/*h2 {
+  color: #007bc3;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}*/
+h2.page-title {
+    color: #005892;
+    font-size: 24px;
+    margin: 10px 0 30px;
+    font-weight: 600;
+}
+
+h3.table-title {
+    margin-top: 0;
+    font-size: 2em;
+    color: #005892;
+}
+
+
+.new-well {
+    background: url(../img/bg-white-texture.jpg) repeat top left;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 10px -15px 30px -15px;
+    line-height: 1;
+    padding: 0 0 0 15px;
+}
+
+    .new-well ul {
+        max-width: 1000px;
+        overflow: hidden;
+        border-left: 1px solid #e0e0e0;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+        .new-well ul li {
+            float: left;
+            width: 33%;
+            border-left: 1px solid white;
+            border-right: 1px solid #e0e0e0;
+            text-align: center;
+            line-height: 1;
+            padding: 15px 0 10px;
+        }
+
+            .new-well ul li:last-child {
+                border-right: none;
+            }
+
+
+/*
+    Meet Page
+*/
+
+.row-container {
+    margin: 0 5em;
+    min-height: 200px;
+    height: auto;
+    margin-top: 1em;
+    padding-bottom: 1em;
+}
+
+.school-container {
+    float: left;
+    width: 400px;
+}
+
+.date-selector-container {
+    float: left;
+    width: 400px;
+}
+
+.results-container {
+    margin-left: 430px;
+    max-width: 1000px;
+}
+
+.event-selector {
+    display: inline-block;
+    margin-left: 30px;
+    max-width: 1000px;
+}
+
+.left-container {
+    float: left;
+    width: 400px;
+    
+}
+
+.right-container {
+    display: inline-block;
+    margin-left: 30px;
+    max-width: 1000px;
+    
+}
+
+.label-and-input label {
+    width: 250px;
+    padding-bottom: .2em;
+}
+.label-and-input div {
+    padding-bottom: 1em;
+}
+
+/*
+    Miscelaneous
+*/
+
+.no-bullet {
+    list-style-type: none;
+}

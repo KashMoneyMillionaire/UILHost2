@@ -1,0 +1,84 @@
+﻿@model UILHost.Web.Models.EditMeetViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+
+        <input type="hidden" name="MeetId" value="@Model.MeetId" />
+        <h1>@Model.Name</h1>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row-container">
+            <div>
+                <div class="left-container">
+                    <h2>Schools</h2>
+                    <ul>
+                        @foreach (var school in Model.CompetingSchools)
+                        {
+                            <li>@school.School.Name</li>
+                        }
+                    </ul>
+                    <a class="btn btn-primary" href="#">Invite Schools</a> @*TODO add email for sending event invite*@
+                </div>
+                <div class="right-selector">
+                    <h2>Events</h2>
+                    <ul>
+                        @for (var i = 0; i < Model.Events.Count; i++)
+                        {
+                            <li class="no-bullet">
+                                @Html.CheckBox("MeetEvents[@i].IsSelected", Model.MeetEvents.Select(m => m.EventId).Contains(Model.Events[i].Id), new { id = "check" + i })
+                                <label for="check@(i)">@Model.Events[i].Name</label>
+                                <input type="hidden" name="MeetEvents[@(i)].Name" value="@Model.Events[i].Name" />
+                                <input type="hidden" name="MeetEvents[@(i)].EventId" value="@Model.Events[i].Id" />
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row-container">
+            <div class="left-container">
+                <h2>Information</h2>
+                <div class="label-and-input">
+                    @Html.LabelFor(m => m.StartTime)
+                    @Html.ValidationMessageFor(model => model.StartTime)
+                    <div>
+                        @Html.TextBoxFor(m => m.StartTime, new { id = "startTimePicker" })
+                    </div>
+                </div>
+
+                <div class="label-and-input">
+                    @Html.LabelFor(m => m.EndTime)
+                    @Html.ValidationMessageFor(model => model.EndTime)
+                    <div>
+                        @Html.TextBoxFor(m => m.EndTime, new { id = "endTimePicker" })
+                    </div>
+                </div>
+                <div class="label-and-input">
+                    @Html.CheckBoxFor(m => m.IsHostCompeting)
+                    @Html.LabelFor(m => m.IsHostCompeting)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Update Meet Information" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $("#startTimePicker").kendoDateTimePicker();
+            $("#endTimePicker").kendoDateTimePicker();
+        })
+    </script>
+}
